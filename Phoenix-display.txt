@@ -1,0 +1,125 @@
+Phoenix-display/
+├── CMakeLists.txt
+├── src/
+│   ├── main.cpp
+│   ├── gui.h
+│   ├── gui.cpp
+│   ├── display_controls.h
+│   ├── display_controls.cpp
+│   ├── test_patterns.h
+│   ├── test_patterns.cpp
+│   ├── ai_integration.h
+│   ├── ai_integration.cpp
+│   ├── progress_bars.h
+│   ├── progress_bars.cpp
+│   ├── pipeline.h
+│   ├── pipeline.cpp
+│   ├── config.h
+│   ├── config.cpp
+│   ├── utils.h
+│   └── utils.cpp
+├── imgui/              (sous-module ou copie des fichiers de https://github.com/ocornut/imgui)
+│   ├── imgui.h
+│   ├── imgui.cpp
+│   ├── imgui_internal.h
+│   ├── imconfig.h
+│   ├── backends/
+│   │   ├── imgui_impl_glfw.h
+│   │   ├── imgui_impl_glfw.cpp
+│   │   ├── imgui_impl_opengl3.h
+│   │   └── imgui_impl_opengl3.cpp
+│   └── misc/ (non utilisé)
+
+
+Rendez le script exécutable et lancez-le :
+
+bash
+chmod +x install.sh
+sudo ./install.sh
+
+
+Le script va :
+
+Installer les dépendances (build-essential, cmake, GLFW, OpenGL, X11, libcurl, libgps, jsoncpp, git)
+
+Télécharger Dear ImGui (sous-répertoire imgui/)
+
+Compiler le projet avec CMake
+
+Copier l'exécutable dans /usr/local/bin/phoenix-screen
+
+Lancez l'application :
+
+bash
+phoenix-screen
+Ou depuis le dossier build :
+
+bash
+./build/PhoenixScreen
+
+-----------
+
+nstallation manuelle (si vous préférez)
+Installez les dépendances :
+
+bash
+
+sudo apt install build-essential cmake libglfw3-dev libgl1-mesa-dev \
+    libx11-dev libxrandr-dev libxcb-dev libcurl4-openssl-dev \
+    libgps-dev libjsoncpp-dev git wget
+
+Clonez ImGui dans le dossier imgui/ à la racine du projet :
+
+bash
+
+git clone https://github.com/ocornut/imgui.git
+cd imgui
+git checkout tags/v1.90.0
+cd ..
+
+Compilez :
+
+bash
+
+mkdir build && cd build
+cmake ..
+make -j$(nproc)
+
+Exécutez :
+
+bash
+./PhoenixDisplay
+
+
+Configuration
+Les réglages sont sauvegardés dans phoenix_config.json à l'emplacement où l'application est lancée. Vous pouvez le modifier manuellement (format JSON) ou via l'interface.
+
+Désinstallation
+Supprimez l'exécutable : sudo rm /usr/local/bin/phoenix-screen
+
+Supprimez le dossier du projet (si vous le souhaitez).
+
+
+--------------
+
+sudo dpkg --configure -a
+sudo apt install -f
+
+
+Si l’erreur persiste, désinstallez le paquet problématique (s’il n’est pas utile) :
+
+bash
+sudo apt remove nvidia-installer-cleanup
+
+
+-------------------
+
+sudo rm -rf build
+
+
+mkdir build
+cd build
+cmake ..
+make -j$(nproc)
+
+./PhoenixDisplay
