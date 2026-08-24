@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=Phœnix-display
+GenericName=Contrôleur d'Affichage & Étalonnage Écran
+Comment=Calibration d'affichage avancée, gestion des couleurs ACES, courbe de tonalité Lightroom, adaptation chromatique CAT, mires de tests vidéo et profilage écran.
+Exec=phoenix-display
+Icon=phoenix-display
+Terminal=false
+Categories=Settings;HardwareSettings;Graphics;Photography;Video;
+StartupNotify=true
+Keywords=display;screen;gamma;brightness;color;calibration;rvb;hsl;hsv;hsi;aces;lightroom;bruce-rgb;adobe-rgb;apple-rgb;cat;bradford;mires;test-patterns;color-management;
+X-GNOME-Autostart-enabled=true
